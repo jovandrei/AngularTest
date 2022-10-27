@@ -1,0 +1,10 @@
+.bolded { font-weight: bold; }
+
+div {
+      margin-bottom: 10px;
+    }
+    label, input {
+      display: inline-block;
+      width: 150px;
+      text-align: left;
+    }
