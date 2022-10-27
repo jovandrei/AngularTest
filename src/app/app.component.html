@@ -1,128 +1,6 @@
-<style>
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  p {
-    margin: 0;
-  }
-  .styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.styled-table1 thead tr {
-    background-color: #980000;
-    color: #ffffff;
-    text-align: left;
-}
-
-.styled-table2 thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
-}
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.styled-table2 tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-
-.styled-table1 tbody tr:last-of-type {
-    border-bottom: 2px solid #980000;
-}
-
-
-.styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-}
-
-.container {
-        position: absolute;
-        top: 10%;
-      }
-      .button {
-        border: none;
-        display: block;
-        text-align: center;
-        cursor: pointer;
-        text-transform: uppercase;
-        outline: none;
-        overflow: hidden;
-        position: relative;
-        color: #eeeeee;
-        font-weight: 600;
-        font-size: 15px;
-        background-color: #153f00;
-        padding: 15px 50px;
-        margin: 0 auto;
-      }
-      .button span {
-        position: relative;
-        z-index: 1;
-      }
-      .button:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 470%;
-        width: 140%;
-        background: #52b71f;
-        -webkit-transition: all .5s ease-in-out;
-        transition: all .5s ease-in-out;
-        -webkit-transform: translateX(-100%) translateY(-25%) rotate(45deg);
-        transform: translateX(-100%) translateY(-25%) rotate(45deg);
-      }
-      .button:hover:after {
-        -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-        transform: translateX(-9%) translateY(-25%) rotate(45deg);
-      }
-
-      footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-</style>
+<head>
+  <link rel="stylesheet" href="app.component.css">
+</head>
 
 <div class="content">
   <h1> Welcome to {{ title }} </h1>
@@ -172,6 +50,8 @@
   </table>
 
     <!-- Footer -->
+    <div id="footer">
+    <hr>
     <footer>
       Find this project on github&nbsp;
       <a href="https://github.com/jovandrei/AngularTest/tree/master/src" target="_blank" rel="noopener">
@@ -185,6 +65,6 @@
       </a>
 
   </footer>
-
+</div>
 </div>
 
