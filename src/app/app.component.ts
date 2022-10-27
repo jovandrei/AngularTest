@@ -28,4 +28,9 @@ export class AppComponent {
     this.totalPrice += menuItem.price;
   }
 
+  reset():void{
+    this.totalPrice = 0.0;
+    this.menuItemsPurchasedItems = []
+  }
+
 }
