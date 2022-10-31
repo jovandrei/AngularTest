@@ -1,5 +1,6 @@
 export interface User {
   name:string,
   age:number,
-  favoriteColor:string
+  favoriteColor:string,
+  animal:number
 }

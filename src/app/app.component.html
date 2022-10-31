@@ -1,42 +1,60 @@
-<div *ngIf="displayEdit">
-      <h1>Profile Editor</h1>
-      <h2>Update User Information</h2>
-      <form (ngSubmit)="updateUserInformation()">
-        <p>
-          <label class="bolded">Name: </label>
-          <input name="name" value="{{user.name}}" [(ngModel)] = "newName"/>
-        </p>
-        <p>
-          <label class="bolded">Age: </label>
-          <input name="age" [(ngModel)] = "newAge"/>
-        </p>
-        <p>
-          <label class="bolded">Favorite Color: </label>
-          <input name="color" [(ngModel)] = "newColor"/>
-        </p>
+<div class="form-style-5">
 
-        <button type="submit">Save Changes</button>
-      </form>
-      <br>
-</div>
-
-<div *ngIf="!displayEdit">
   <h1>Profile Editor</h1>
   <h2>Update User Information</h2>
-  <form>
-    <p>
-      <label class="bolded">Name: </label>
-      <label>{{ user.name }}</label>
-    </p>
-    <p>
-      <label class="bolded">Age: </label>
-      <label>{{ user.age }}</label>
-    </p>
-    <p>
-      <label class="bolded">Favorite Color: </label>
-      <label>{{ user.favoriteColor }}</label>
-    </p>
-  </form>
-  <br>
+
+  <div *ngIf="displayEdit">
+        <form (ngSubmit)="updateUserInformation()">
+          <p>
+            <label class="bolded">Name: </label>
+            <input type="text" name="name" value="{{user.name}}" [(ngModel)] = "newName"/>
+          </p>
+          <p>
+            <label class="bolded">Age: </label>
+            <input type="text" name="age" [(ngModel)] = "newAge"/>
+          </p>
+          <p>
+            <label class="bolded">Favorite Color: </label>
+            <input type="text" name="color" [(ngModel)] = "newColor"/>
+          </p>
+          <p>
+            <label class="bolded">Favorite Animal: </label>
+            <select name="animal" [(ngModel)]="animalIndex" [(ngModel)] = "newAnimal">
+                <option *ngFor="let animal of animalArray;index as i" value={{i}}>
+                  {{animal}}
+                </option>
+            </select>
+          </p>
+          <button (click)="toggleEdit()" class="btn">Toggle Edit</button>
+          <button type="submit" class="btn">Save Changes</button>
+
+          <div  class="savedClass" *ngIf="displaySaved">Saved...</div>
+        </form>
+
+        <br>
+  </div>
+
+  <div *ngIf="!displayEdit">
+    <form>
+      <p>
+        <label class="bolded">Name: </label>
+        <label type="text" >{{ user.name }}</label>
+      </p>
+      <p>
+        <label class="bolded">Age: </label>
+        <label type="text">{{ user.age }}</label>
+      </p>
+      <p>
+        <label class="bolded">Favorite Color: </label>
+        <label type="text">{{ user.favoriteColor }}</label>
+      </p>
+      <p>
+        <label class="bolded">Favorite Animal: </label>
+        <label type="text">{{ animalArray[user.animal] }}</label>
+      </p>
+      <button (click)="toggleEdit()" class="btn">Toggle Edit</button>
+    </form>
+    <br>
+  </div>
+
 </div>
-<button (click)="toggleEdit()">Toggle Edit</button>
