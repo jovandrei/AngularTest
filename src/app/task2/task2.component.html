@@ -7,6 +7,9 @@
       <label class="bolded">How Many?</label>
       <input type="text" name="name" value="{{newCoinsCount}}" [(ngModel)]="newCoinsCount" />
     </p>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="20" name="size" value="{{newCoinsCount}}" class="slider" id="myRange"  [(ngModel)] = "newCoinsCount">
+    </div>
     <p>
       <label class="bolded">Which coin?</label>
       <select name="coin" [(ngModel)]="coinType">
