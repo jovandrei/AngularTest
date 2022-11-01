@@ -1,42 +1,18 @@
-import { Component } from '@angular/core';
-import { User } from '../models/user';
+import { Component, ViewChild, ElementRef, ViewChildren, AfterViewInit} from '@angular/core';
+import { Task3Component } from './task3/task3.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
 })
-export class AppComponent {
-  title = 'lab3';
-  newName="";
-  newAnimal=0;
-  newAge=0;
-  newColor="";
-  animalIndex=0;
-  animalArray=["Dog", "Cat", "Bird"];
+export class AppComponent{
 
-  user:User = {name:"Andrei", age:28, favoriteColor:"Green", animal:1}
-  displayEdit:boolean = false
-  displaySaved:boolean = false
+  task = "Task1"
 
-  constructor() {
-    this.newName=this.user.name;
-    this.newAge=this.user.age;
-    this.newColor=this.user.favoriteColor;
-    this.newAnimal=this.user.animal;
-  }
-
-  toggleEdit(){
-    this.displayEdit = !this.displayEdit;
-    this.displaySaved = false
-  }
-
-  updateUserInformation(){
-    this.user.name = this.newName;
-    this.user.age = this.newAge;
-    this.user.favoriteColor = this.newColor;
-    this.user.animal = this.newAnimal;
-    this.displaySaved = true
+  selectTask(newTask:string){
+    this.task = newTask;
   }
 
 }

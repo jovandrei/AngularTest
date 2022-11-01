@@ -1,0 +1,31 @@
+<div >
+  <h2>Paint something</h2>
+  <form (ngSubmit)="updateSize()">
+    <p>
+      <label class="bolded">Size: </label>
+      <input type="text" name="size" value="{{size}}" [(ngModel)] = "newSize"/>
+    </p>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="20" name="size" value="{{size}}" class="slider" id="myRange"  [(ngModel)] = "newSize">
+    </div>
+    <br>
+    <button type="submit" class="btn" >Reset/Resize Grid</button>
+  </form>
+
+  <br>
+  <button (click)="ChangeColor('red')" class="btn">Red</button>
+  <button (click)="ChangeColor('green')" class="btn">Green</button>
+  <button (click)="ChangeColor('blue')" class="btn">Blue</button>
+
+  <p></p>
+
+  Press Left-click to color cell
+  <br>
+  Press Right-click to clear cell
+  <br>
+  Keep mouse pressed to color or delete cells.
+
+  <p></p>
+</div>
+  <div id="grid" ></div>
+

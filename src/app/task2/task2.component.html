@@ -1,0 +1,36 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div>
+
+  <h2>Make Money</h2>
+  <form (ngSubmit)="makeMoney()">
+    <p>
+      <label class="bolded">How Many?</label>
+      <input type="text" name="name" value="{{newCoinsCount}}" [(ngModel)]="newCoinsCount" />
+    </p>
+    <p>
+      <label class="bolded">Which coin?</label>
+      <select name="coin" [(ngModel)]="coinType">
+        <option *ngFor="let coin of coinArray;index as i" value={{i}}>
+          {{coin.name}}
+        </option>
+      </select>
+    </p>
+    <p>
+      <label class="bolded">Total Money:</label>
+      <label>{{totalSum | currency}}</label>
+    </p>
+    <p>
+      <label>Click coin to remove</label>
+    </p>
+    <button class="btn">Make Money!</button>
+  </form>
+
+  <div class="row">
+    <div class="column">
+      <div id="walletElement">
+        <img src="../../assets/images/{{coin.name}}.jpg" *ngFor="let coin of wallet; index as i" (click)="removeCoin(i)"
+          height={{coin.size}}>
+      </div>
+    </div>
+  </div>
+</div>

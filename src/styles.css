@@ -1,1 +1,215 @@
-/* You can add global styles to this file, and also import other style files */
+div.row {
+
+}
+
+div.column_black {
+
+  float: left;
+  outline: 1px solid;
+  border: 1px solid #fff;
+  background: #000000;
+}
+
+div.column_red {
+  float: left;
+  outline: 1px solid;
+  border: 1px solid #fff;
+  background: #ff0000;
+}
+
+div.column_green {
+  float: left;
+  outline: 1px solid;
+  border: 1px solid #fff;
+  background: #00ff15;
+}
+
+div.column_blue {
+  width: 100px;
+  height: 100px;
+  float: left;
+  outline: 1px solid;
+  border: 1px solid #fff;
+  background: #2600ff;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+.bolded {
+  font-weight: bold;
+}
+
+h1 {
+  color: #8a97a0;
+}
+
+.form-style-5 label[type="text"] {
+  background: rgba(255, 255, 255, .1);
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+.form-style-4 {
+  float: left;
+  outline: 1px solid;
+  border: 1px solid #fff;
+  background: #000000;
+  max-width: 500px;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 100px auto auto 100px;
+}
+
+.form-style-5 {
+
+  float: center;
+  max-width: 600px;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  margin: 10px auto auto auto;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.form-style-5 label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-style-5 input[type="text"],
+.form-style-5 input[type="date"],
+.form-style-5 input[type="datetime"],
+.form-style-5 input[type="email"],
+.form-style-5 input[type="number"],
+.form-style-5 input[type="search"],
+.form-style-5 input[type="time"],
+.form-style-5 input[type="url"],
+.form-style-5 textarea,
+.form-style-5 select {
+  background: rgba(255, 255, 255, .1);
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+
+}
+
+.form-style-5 input[type="text"]:focus,
+.form-style-5 input[type="date"]:focus,
+.form-style-5 input[type="datetime"]:focus,
+.form-style-5 input[type="email"]:focus,
+.form-style-5 input[type="number"]:focus,
+.form-style-5 input[type="search"]:focus,
+.form-style-5 input[type="time"]:focus,
+.form-style-5 input[type="url"]:focus,
+.form-style-5 textarea:focus,
+.form-style-5 select:focus {
+  background: #d2d9dd;
+}
+
+.savedClass {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  color: #8a97a0;
+}
+
+.slidecontainer {
+  width: 100%;
+  /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  appearance: none;
+  height: 25px;
+  /* Specified height */
+  background: #d3d3d3;
+  /* Grey background */
+  outline: none;
+  /* Remove outline */
+  opacity: 0.7;
+  /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s;
+  /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1;
+  /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  background: #04AA6D;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  background: #04AA6D;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+}
