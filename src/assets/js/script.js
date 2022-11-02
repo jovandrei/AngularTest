@@ -48,6 +48,7 @@ function mouseDownFunction(id, event) {
 function mouseUpFunction() {
   mouseDown = false
   eraseCell = false
+  clearSelection()
 }
 
 function mouseEnterFunction(id, event) {
@@ -93,3 +94,9 @@ document.oncontextmenu = function(e){
   if(event.stopPropagation != undefined)
    event.stopPropagation();
  }
+
+function clearSelection()
+{
+ if (window.getSelection) {window.getSelection().removeAllRanges();}
+ else if (document.selection) {document.selection.empty();}
+}
