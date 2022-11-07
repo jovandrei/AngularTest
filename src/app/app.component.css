@@ -1,0 +1,11 @@
+.form-style-4 {
+  float: left;
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Open Sans;
+  font-weight: 300;
+  margin: 100px auto auto 100px;
+  background:  #ffffff;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}

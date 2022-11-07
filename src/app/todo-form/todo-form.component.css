@@ -1,0 +1,67 @@
+.btn {
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border: 1px solid #eee;
+  background-color: #ff1493;
+  color:white;
+  width: 100%;
+  margin:1px;
+}
+
+.btn:hover {
+  background-color: #b90d69;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+input {
+  width: 100%;
+  color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  margin:1px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label[type="text"] {
+  background: rgba(255, 255, 255, .1);
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.form-style {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Open Sans;
+  font-weight: 300;
+  background:  #ffffff;
+  box-shadow: 0px 0px 5px 0px rgba(141, 107, 107, 0.75);
+  float:left;
+  margin: 10px;
+  box-sizing: border-box;
+}

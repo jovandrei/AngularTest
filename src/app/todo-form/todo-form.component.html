@@ -1,0 +1,5 @@
+<form (ngSubmit)="AddNewTask()" class="form-style" >
+    <label class="bolded">Enter a new task:</label>
+    <input (focus)="focusedInput()" (focusout)="focusedOutInput()" type="text" name="to-do" value="Add your to-do" [(ngModel)]="newToDo" />
+    <button type="submit" class="btn">Add</button>
+</form>

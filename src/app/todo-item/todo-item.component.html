@@ -1,0 +1,17 @@
+<div class="form-style" [@popOverState]="stateName" *ngIf="!displayEdit">
+  <div *ngIf="displayComplete" >
+    <button class="complete_button" (click)="completeItem()">Complete</button>
+  </div>
+  <div class="number" (click)="completeItem()"><label type="text" [ngClass]="myClass">{{index+1}}.</label></div>
+  <div class="itemDesc" (click)="toggleEdit()"><label type="text" [ngClass]="myClass">{{todoItem.task}}</label></div>
+  <button class="delete_button" (click)="deleteItem()"></button>
+</div>
+
+<div class="form-style"  [@popOverState]="stateName" *ngIf="displayEdit">
+  <div *ngIf="displayComplete" >
+    <button class="complete_button" (click)="completeItem()">Complete</button>
+  </div>
+  <div class="number" (click)="completeItem()"><label type="text" [ngClass]="myClass">{{index+1}}.</label></div>
+  <input type="text" (keyup.enter)="toggleEdit()" name="Name" [(ngModel)]="todoItem.task" />
+  <button class="delete_button" (click)="deleteItem()"></button>
+</div>

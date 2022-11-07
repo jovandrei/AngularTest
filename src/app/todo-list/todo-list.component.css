@@ -1,0 +1,22 @@
+h2 {
+  font-size: 40px;
+  text-align: left;
+}
+
+* {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+label {
+  margin: 0px 0px 30px;
+  display: flex;
+  justify-content: left;
+}
+
+input {
+  width: 100%;
+  color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  margin:1px;
+}

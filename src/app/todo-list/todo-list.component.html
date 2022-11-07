@@ -1,0 +1,21 @@
+<div>
+  <h2>To-Do List</h2>
+  <label>A place to store your todos</label>
+  <input (input)="updateValue()" (focus)="focusedInput()" (focusout)="focusedOutInput()" type="text" id="todoFilter" [(ngModel)]="filterVar" />
+  <div name="items">
+    <div *ngIf="todoArraySample.length!=0">
+      <div *ngFor="let todoItemSample of todoArraySampleFiltered; index as i">
+        <app-todo-item [todoItem]="todoItemSample" [index]="i" (deleteChose)="deleteItem(i)"
+          (completeChose)="completeItem(i)"></app-todo-item>
+      </div>
+    </div>
+    <div *ngIf="todoArraySample.length==0">
+      <br>
+      <span>Congrats, you don't have any pending tasks!</span>
+      <br>
+    </div>
+  </div>
+  <div name="form">
+    <app-todo-form (chosen)="addItem($event)"></app-todo-form>
+  </div>
+</div>
