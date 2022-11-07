@@ -1,0 +1,27 @@
+<div class="form-style">
+  <form (ngSubmit)="AddNewContact()">
+    <label class="bolded">Add a contact:</label>
+
+    <p>
+      <label class="bolded">Profile Image</label>
+      <select name="images" [(ngModel)]="newImage">
+        <option *ngFor="let image of imageArray" value={{image}}>
+          {{image}}
+        </option>
+      </select>
+    </p>
+
+    <p>
+      <label class="bolded">Name</label>
+      <input type="text" name="Name" [(ngModel)]="newName" />
+    </p>
+
+    <p>
+      <label class="bolded">Email</label>
+      <input type="text" name="Email" [(ngModel)]="newEmail" />
+    </p>
+    <div class="centered">
+      <button type="submit" class="btn">Add</button>
+    </div>
+  </form>
+</div>

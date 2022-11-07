@@ -1,0 +1,28 @@
+<div class="form-style" [@popOverState]="stateName" *ngIf="!displayEdit">
+  <div class="center">
+    <img src="{{contactListItem.image}}" />
+  </div>
+  <br>
+  <label type="text">{{contactListItem.name}}</label>
+  <br>
+  <label type="text">{{contactListItem.email}}</label>
+  <button class="edit_button" (click)="toggleEdit()"></button>
+  <button type="submit" class="delete_button" (click)="deleteItem()"></button>
+</div>
+
+<div class="form-style" [@popOverState]="stateName" *ngIf="displayEdit">
+
+  <p>
+    <label class="bolded">Name</label>
+    <input type="text" name="Name" [(ngModel)]="contactListItem.name" />
+  </p>
+
+  <p>
+    <label class="bolded">Email</label>
+    <input type="text" name="Email" [(ngModel)]="contactListItem.email" />
+  </p>
+
+
+  <button class="edit_button" (click)="toggleEdit()"></button>
+  <button type="submit" class="delete_button" (click)="deleteItem()"></button>
+</div>

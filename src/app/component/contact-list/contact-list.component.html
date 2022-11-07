@@ -1,0 +1,14 @@
+<div class="form-style">
+  <div class="centeredTitle">
+    <h2>Contacts</h2>
+  </div>
+
+  <div name="cards">
+    <div *ngFor="let contactListItem of contactListArray; index as i">
+      <app-contact-card [contactListItem]="contactListItem" (chosen)="deleteItem(i)"></app-contact-card>
+    </div>
+  </div>
+  <div name="form">
+    <app-contact-form (chosen)="addContact($event)"></app-contact-form>
+  </div>
+</div>
