@@ -108,7 +108,7 @@ export class AppComponent implements OnInit {
         this.forecastUrl = data.properties.forecast
         this.city = data.properties.relativeLocation.properties.city
         this.state = data.properties.relativeLocation.properties.state
-        this.status = "200"
+        this.status = "200 (loading...)"
         this.fetchWeather()
       },
       (error) => {
@@ -167,7 +167,7 @@ export class AppComponent implements OnInit {
           geometry: data.geometry,
           properties: data.properties
         }
-        this.status = "200"
+        this.status = "200 (Done)"
       },
       (error) => {
         this.status = error.status

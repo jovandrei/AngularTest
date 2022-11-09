@@ -1,102 +1,78 @@
-<br>
-<form (ngSubmit)="UpdateLatLon()">
-  <p>
-    <label>lat:</label>
-    <input type="text" name="lat" value="{{newLat}}" [(ngModel)]="newLat" />
-  </p>
-  <p>
-    <label>lon:</label>
-    <input type="text" name="lon" value="{{newLon}}" [(ngModel)]="newLon" />
-  </p>
-  <button type="submit">Update</button>
-</form>
+<div>
+  <div class="style-1">
+    <form (ngSubmit)="UpdateLatLon()">
+      <p>
+        <label class="bolded">lat:</label>
+        <input type="text" name="lat" value="{{newLat}}" [(ngModel)]="newLat" />
+      </p>
+      <p>
+        <label>lon:</label>
+        <input type="text" name="lon" value="{{newLon}}" [(ngModel)]="newLon" />
+      </p>
+    </form>
+    <p>
+      <label class="bolded">openWeatherSysCountry: </label>
+      <label>{{openWeatherSysCountry}}</label>
+    </p>
+    <p>
+      <label class="bolded">openWeatherSysCounty: </label>
+      <label>{{openWeatherSysCounty}}</label>
+    </p>
+    <p>
+      <label class="bolded">openWeatherWeatherMain: </label>
+      <label>
+        <img src="http://openweathermap.org/img/w/{{openWeatherWeatherIcon}}.png">
+        {{openWeatherWeatherMain}}
+      </label>
+    </p>
+    <p>
+      <label class="bolded">openWeatherWeatherDescription: </label>
+      <label>{{openWeatherWeatherDescription}}</label>
+    </p>
+    <p>
+      <label class="bolded">openWeatherMainTemp: </label>
+      <label>{{openWeatherMainTemp}} °F</label>
+    </p>
+    <p>
+      <label class="bolded">openWeatherMainTempMin: </label>
+      <label>{{openWeatherMainTempMin}} °F</label>
+    </p>
+    <p>
+      <label class="bolded">openWeatherMainTempMax: </label>
+      <label>{{openWeatherMainTempMax}} °F</label>
+    </p>
 
-<table>
-<tr>
-  <td width="350px">
-
-<p>
-  <label>openWeatherSysCountry: </label>
-  <label>{{openWeatherSysCountry}}</label>
-</p>
-
-<p>
-  <label>openWeatherSysCounty: </label>
-  <label>{{openWeatherSysCounty}}</label>
-</p>
-
-<p>
-  <label>openWeatherWeatherMain: </label>
-  <img src="http://openweathermap.org/img/w/{{openWeatherWeatherIcon}}.png">
-  <label>{{openWeatherWeatherMain}}</label>
-</p>
-
-<p>
-  <label>openWeatherWeatherDescription: </label>
-  <label>{{openWeatherWeatherDescription}}</label>
-</p>
-
-<p>
-  <label>openWeatherMainTemp: </label>
-  <label>{{openWeatherMainTemp}} °F</label>
-</p>
-
-<p>
-  <label>openWeatherMainTempMin: </label>
-  <label>{{openWeatherMainTempMin}} °F</label>
-</p>
-
-<p>
-  <label>openWeatherMainTempMax: </label>
-  <label>{{openWeatherMainTempMax}} °F</label>
-</p>
-
-
-<p>
-  ==========================
-</p>
-
-<p>
-  <label>api.weather.gov Status: </label>
-  <label>{{status}}</label>
-</p>
-
-<p>
-  <label>city: </label>
-  <label>{{city}}</label>
-</p>
-
-<p>
-  <label>state: </label>
-  <label>{{state}}</label>
-</p>
-
-
-
-
-  </td>
-  <td>
     <div style="height: 300px; width:500px" id="map">
       leaflet
- </div>
-  </td>
+    </div>
 
-  <td>
+  </div>
 
+  <div class="style-1">
+    <p>
+      <label>api.weather.gov Status: </label>
+      <label>{{status}}</label>
+    </p>
+    <p>
+      <label>city: </label>
+      <label>{{city}}</label>
+    </p>
+    <p>
+      <label>state: </label>
+      <label>{{state}}</label>
+    </p>
 
-  </td>
-</tr>
-</table>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Temperature</th>
-    <th>Icon</th>
-  </tr>
-  <tr *ngFor="let period of this.weatherObject.properties.periods">
-    <td>{{ period.name }}</td>
-    <td>{{ period.temperature }} °F</td>
-    <td><img src="{{ period.icon }}" /></td>
-  </tr>
-</table>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Temperature</th>
+        <th>Icon</th>
+      </tr>
+      <tr *ngFor="let period of this.weatherObject.properties.periods">
+        <td>{{ period.name }}</td>
+        <td>{{ period.temperature }} °F</td>
+        <td><img src="{{ period.icon }}" /></td>
+      </tr>
+    </table>
+  </div>
+</div>

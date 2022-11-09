@@ -10,7 +10,7 @@ import { OpenWeatherAPIInterface } from '../models/open-weather-api-interface';
 })
 export class WeatherApiService {
   apiUrl = 'https://api.weather.gov/'
-  appid='fabefc36eccdd8ae34bbc0209389fb73'
+  openWeatherAppid='fabefc36eccdd8ae34bbc0209389fb73'
   openWeatherAPIUrl = 'https://api.openweathermap.org/data/2.5/weather?'
   constructor(private http: HttpClient) {}
 
@@ -27,7 +27,7 @@ export class WeatherApiService {
   }
 
   getOpenWeatherAPI(lat:string, lon:string):Observable<OpenWeatherAPIInterface> {
-    var url = this.openWeatherAPIUrl + "lat=" + lat + "&lon=" + lon + "&appid=" + this.appid + "&units=imperial"
+    var url = this.openWeatherAPIUrl + "lat=" + lat + "&lon=" + lon + "&appid=" + this.openWeatherAppid + "&units=imperial"
     console.log(url)
     return this.http.get<OpenWeatherAPIInterface>(url);
   }
