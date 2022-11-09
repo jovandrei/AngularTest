@@ -14,8 +14,8 @@ import { delay, map, retry } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'lab6';
-  newLat = "38.8316"
-  newLon = "-77.1934"
+  newLat = "37"
+  newLon = "-100"
 
   forecastUrl = ""
   city = ""
@@ -159,7 +159,7 @@ export class AppComponent implements OnInit {
   }
 
   fetchWeather(): void {
-    this.weatherApiService.getWeather(this.forecastUrl).pipe(retry(3), delay(1000)).subscribe(
+    this.weatherApiService.getWeather(this.forecastUrl).pipe(retry(5), delay(1000)).subscribe(
       (data: WeatherInterface) => {
         this.weatherObject = {
           "@context": data['@context'],
@@ -170,7 +170,7 @@ export class AppComponent implements OnInit {
         this.status = "200 (Done)"
       },
       (error) => {
-        this.status = error.status
+        this.status = error.status + " (try again)"
         this.city = "Undefined"
         this.state = "Undefined"
         this.status = error.status
