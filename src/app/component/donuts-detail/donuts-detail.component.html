@@ -1,0 +1,20 @@
+<h1>Donut</h1>
+<button (click)="addDonut()">Add to Cart</button>
+<br>
+
+<label>Name: {{donut.name}}</label>
+<br>
+<label>Calories: {{donut.calories}}</label>
+<br>
+<label>Extras:
+  <ul>
+    <div *ngFor="let extra of donut.extras">
+      <li>{{extra}}</li>
+    </div>
+  </ul>
+</label>
+<img src = {{donut.photo}} width="200px" height="200px">
+<br>
+<label>Photo Attribution: <a href="{{donut.photo_attribution}}">{{donut.photo_attribution}}</a></label>
+<br>
+<br>

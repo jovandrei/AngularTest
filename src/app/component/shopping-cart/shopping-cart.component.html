@@ -1,0 +1,24 @@
+<h1>Shopping Cart</h1>
+
+<table class="styled-table styled-table2">
+  <tr>
+    <th>Donut</th>
+    <th>Calories</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  <tr *ngFor="let donut of getReducedDonutShoppingCartArray(); let i = index">
+    <td>{{ donut.specificDonutAPIInterface.name }}</td>
+    <td>{{ donut.total_calories }}</td>
+    <td>{{ donut.total_price|currency }}</td>
+    <td>{{ donut.count }}</td>
+    <td><button (click)="remove(donut)">Remove</button></td>
+  </tr>
+</table>
+
+<br>
+
+<br>
+<label>Total Calories: {{ getTotalCalories() }} </label>
+<br>
+<label>Total Price: {{getTotalPrice() | currency}} </label>
