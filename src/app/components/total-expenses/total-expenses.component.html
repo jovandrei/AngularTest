@@ -1,0 +1,8 @@
+<div>
+  <p>
+    <label>Total Expenses:</label> <label>{{expenses | currency}}</label>
+    <br>
+    <label>Total Budget:</label> <label>{{getBudget() | currency}}</label>
+    <mat-progress-bar mode="determinate" value="{{getExpenses2() | number}}"></mat-progress-bar>
+  </p>
+</div>

@@ -1,0 +1,15 @@
+<div class="container mt-3">
+  <form  (ngSubmit)="setBudget(myForm)" #myForm="ngForm">
+    <div class="form-floating mb-3 mt-3">
+      <input required class="form-control" type="number" id="amount" name="amount" [(ngModel)]="budgetAmount"
+        placeholder="Enter a value" #name="ngModel" min="0">
+      <label for="amount">Amount*</label>
+      <div *ngIf="name.invalid && (name.dirty)" class="alert alert-danger mt-2">
+        <div *ngIf="name.errors?.['required']">Amount is required.</div>
+        <div *ngIf="name.errors?.['min']">Amount cannot be negative</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="!myForm.valid">Set new budget</button>
+  </form>
+
+</div>

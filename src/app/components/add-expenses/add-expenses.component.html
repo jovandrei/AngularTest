@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <form  (ngSubmit)="addExpense(myForm)" #myForm="ngForm">
+    <div class="form-floating mb-3 mt-3">
+      <input required class="form-control" type="number" id="amount" name="amount" [(ngModel)]="expenses.amount"
+        placeholder="Enter a value" #name="ngModel" min="0">
+      <label for="amount">Amount*</label>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger mt-2">
+        <div *ngIf="name.errors?.['required']">Amount is required.</div>
+        <div *ngIf="name.errors?.['min']">Amount cannot be negative</div>
+      </div>
+
+    </div>
+
+    <div class="form-floating mb-3 mt-3">
+      <input required class="form-control" type="text" id="description" name="description"
+        placeholder="Enter a description" [(ngModel)]="expenses.description" #description="ngModel" minlength="3">
+      <label for="description">Description*</label>
+      <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger mt-2">
+        <div *ngIf="description.errors?.['required']">Description is required.</div>
+        <div *ngIf="description.errors?.['minlength']">Description must be at least 3 characters</div>
+      </div>
+
+    </div>
+
+    <div class="form-floating mb-3 mt-3">
+      <select required class="form-select" id="category" name="category" [(ngModel)]="expenses.category">
+        <option *ngFor="let category of getCategories(); index as i" value={{i}}>
+          {{category}}
+        </option>
+      </select>
+      <label for="category">Category*</label>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="!myForm.valid">Add Expense</button>
+  </form>
+
+</div>
