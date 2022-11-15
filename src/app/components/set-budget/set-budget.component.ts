@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 })
 export class SetBudgetComponent implements OnInit {
 
+  toDate:Date = new Date()
   budgetAmount = 0
   constructor( private budgetService:BudgetService) {
     this.budgetAmount = budgetService.totalBudget
