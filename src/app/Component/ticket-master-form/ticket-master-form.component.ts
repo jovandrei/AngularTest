@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import { TicketMasterEvents } from 'src/app/models/ticket-master-events';
+import { TicketMasterEventsInterface } from 'src/app/models/ticket-master-events-interface';
+import { TicketMasterSearchingCriteriaInterface } from 'src/app/models/ticket-master-searching-criteria-interface';
 import { TicketMasterEventAPIService } from 'src/app/services/ticket-master-event-api.service';
 
 @Component({
@@ -8,18 +9,19 @@ import { TicketMasterEventAPIService } from 'src/app/services/ticket-master-even
   templateUrl: './ticket-master-form.component.html',
   styleUrls: ['./ticket-master-form.component.css']
 })
-export class TicketMasterFormComponent{
-  keyword: string = "";
-  location: string = "";
-  fromDate: Date = new Date();
-  toDate: Date = new Date();
+export class TicketMasterFormComponent implements OnInit{
+
+  ticketMasterSearchingCriteriaInterface:TicketMasterSearchingCriteriaInterface = {} as TicketMasterSearchingCriteriaInterface
 
   constructor(private ticketMasterEventAPIService:TicketMasterEventAPIService) { }
+  ngOnInit(): void {
+    this.searchEvent()
+  }
 
-  searchEvent(f: NgForm) {
-    this.ticketMasterEventAPIService.getEventsAPI().subscribe(
-      (response:TicketMasterEvents) => {
-        this.ticketMasterEventAPIService.ticketMasterEvents = response
+  searchEvent() {
+    this.ticketMasterEventAPIService.getEventsAPI(this.ticketMasterSearchingCriteriaInterface).subscribe(
+      (response:TicketMasterEventsInterface) => {
+        this.ticketMasterEventAPIService.ticketMasterEventsInterface = response
       }
     )
   }

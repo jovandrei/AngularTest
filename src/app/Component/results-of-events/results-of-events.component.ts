@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TicketMasterEvents } from 'src/app/models/ticket-master-events';
+import { TicketMasterEventsInterface } from 'src/app/models/ticket-master-events-interface';
 import { TicketMasterEventAPIService } from 'src/app/services/ticket-master-event-api.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ResultsOfEventsComponent{
 
   constructor(private ticketMasterEventAPIService:TicketMasterEventAPIService) { }
 
-  getEvents():TicketMasterEvents {
+  getEvents():TicketMasterEventsInterface {
     return this.ticketMasterEventAPIService.getAllEvents()
   }
 

@@ -1,4 +1,4 @@
-export interface TicketMasterEvents {
+export interface TicketMasterEventsInterface {
   _embedded: TicketMasterEventsEmbedded;
   _links:    TicketMasterEventsLinks;
   page:      Page;
