@@ -1,22 +1,21 @@
 <div class="container mt-3">
   <form (ngSubmit)="searchEvent(myForm)" #myForm="ngForm">
     <div class="form-floating mb-3 mt-3">
-      <input type="text" title="Keyword" name="Keyword" [(ngModel)]="Keyword" class="form-control">
-      <label>Keyword</label>
+      <input type="text" name="keyword" [(ngModel)]="keyword" class="form-control" placeholder="Enter a value">
+      <label for="keyword">Keyword</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-      <input type="text" title="location" name="location" [(ngModel)]="location" class="form-control">
-      <label>Keyword</label>
+      <input type="text" name="location" [(ngModel)]="location" class="form-control"  placeholder="Enter a value">
+      <label>Location</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-      <input type="date" title="Daterange" name="FromDate" [(ngModel)]="FromDate" class="form-control">
-      <label>Keyword</label>
+      <input type="date" name="fromDate" [(ngModel)]="fromDate" class="form-control">
+      <label>From Date</label>
     </div>
     <div class="form-floating mb-3 mt-3">
-      <input type="date" title="Daterange" name="ToDate" [(ngModel)]="ToDate" class="form-control">
-      <label>Keyword</label>
+      <input type="date" name="toDate" [(ngModel)]="toDate" class="form-control">
+      <label>To Date</label>
     </div>
-
-    <button type="submit" class="btn btn-primary">Search Event</button>
+    <button class="btn btn-primary">Search Event</button>
   </form>
 </div>
