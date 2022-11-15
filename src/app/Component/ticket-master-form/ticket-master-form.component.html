@@ -1,7 +1,22 @@
-<form>
-    Allow users to filter events based on at least three criteria (e.g.: keyword, location, date range).
-    <input type="text" title="Keyword" name="Keyword" [(ngModel)]="Keyword">
-    <input type="text" title="location" name="location" [(ngModel)]="location">
-    <input type="date" title="Daterange" name="FromDate" [(ngModel)]="FromDate">
-    <input type="date" title="Daterange" name="ToDate" [(ngModel)]="ToDate">
-</form>
+<div class="container mt-3">
+  <form (ngSubmit)="searchEvent(myForm)" #myForm="ngForm">
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" title="Keyword" name="Keyword" [(ngModel)]="Keyword" class="form-control">
+      <label>Keyword</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="text" title="location" name="location" [(ngModel)]="location" class="form-control">
+      <label>Keyword</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="date" title="Daterange" name="FromDate" [(ngModel)]="FromDate" class="form-control">
+      <label>Keyword</label>
+    </div>
+    <div class="form-floating mb-3 mt-3">
+      <input type="date" title="Daterange" name="ToDate" [(ngModel)]="ToDate" class="form-control">
+      <label>Keyword</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search Event</button>
+  </form>
+</div>

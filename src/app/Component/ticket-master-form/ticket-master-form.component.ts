@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-ticket-master-form',
@@ -6,14 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ticket-master-form.component.css']
 })
 export class TicketMasterFormComponent implements OnInit {
-Keyword:string="";
-location:string="";
-FromDate:Date=new Date();
-ToDate:Date=new Date();
+  Keyword: string = "";
+  location: string = "";
+  FromDate: Date = new Date();
+  ToDate: Date = new Date();
   constructor() { }
 
   ngOnInit(): void {
-  
+
+  }
+
+  searchEvent(f: NgForm) {
+    
   }
 
 }
