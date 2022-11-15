@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <form (ngSubmit)="searchEvent()" #myForm="ngForm">
     <div class="form-floating mb-3 mt-3">
-      <input type="text" name="keyword" [(ngModel)]="ticketMasterSearchingCriteriaInterface.keyword" class="form-control" placeholder="Enter a value">
+      <input (input)="searchEvent()"  type="text" name="keyword" [(ngModel)]="ticketMasterSearchingCriteriaInterface.keyword" class="form-control" placeholder="Enter a value">
       <label for="keyword">Keyword</label>
     </div>
     <div class="form-floating mb-3 mt-3">

@@ -1,8 +1,10 @@
 <h1>Results of Events</h1>
 <ul *ngIf="(getEvents() | json) != '{}' ">
+  <div *ngIf="(getEvents()._embedded) != undefined ">
   <div *ngFor="let event of getEvents()._embedded.events">
     <li>
       <a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a>
     </li>
   </div>
+</div>
 </ul>
