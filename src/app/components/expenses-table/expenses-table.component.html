@@ -9,10 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let expense of getExpenses(); let i = index">
+      <tr *ngFor="let expense of getExpensesArray(); let i = index">
         <td>{{expense.description}}</td>
         <td>{{getCategory(expense.category)}}</td>
         <td>{{expense.amount}}</td>
+        <button (click)="removeExpense(i)">Remove</button>
       </tr>
     </tbody>
   </table>

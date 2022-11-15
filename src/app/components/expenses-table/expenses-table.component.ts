@@ -13,12 +13,16 @@ export class ExpensesTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getExpenses() {
+  getExpensesArray() {
     return this.budgetService.expensesArray
   }
 
   getCategory(i:number){
     return this.budgetService.getCategory(i)
+  }
+
+  removeExpense(i:number){
+    this.budgetService.removeExpense(i)
   }
 
 }

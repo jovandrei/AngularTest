@@ -13,7 +13,6 @@ export class TotalExpensesComponent implements OnInit {
   constructor(private budgetService:BudgetService) { }
 
   ngOnInit(): void {
-
     this.budgetService.totalExpenses.subscribe(
       (res:number|null) => this.expenses = res
     )
@@ -29,15 +28,33 @@ export class TotalExpensesComponent implements OnInit {
 
   getExpenses2() {
     let val = this.budgetService.getTotalExpenses()
+
     if (val != null)
-      return val * 100 / (this.getBudget() + this.getExpenses())
+      return val * 100 / (this.getBudget())
+
     else
       return 0
+  }
+
+  getExpensesArray() {
+    return this.budgetService.expensesArray
+  }
+
+  getRemainingBudget() {
+    return this.budgetService.remainingBudget
   }
 
   getBudget() {
     return this.budgetService.totalBudget
   }
 
-  value = this.getExpenses() * 100 / this.getBudget()
+  getCategories() {
+    return this.budgetService.categories
+  }
+
+  getExpensesPerCategory(categoryIndex:number) {
+    return this.budgetService.getExpensesPerCategory(categoryIndex)
+  }
+
+
 }
