@@ -18,6 +18,7 @@ export class TicketMasterEventDBService {
  }
 
  postDB(ticketMasterEventDBInterface:TicketMasterEventDBInterface) {
+   console.log("added to db");
     return this.http.post<TicketMasterEventDBInterface>(this.url, ticketMasterEventDBInterface, {headers:{'x-apikey':this.apiKey}})
  }
 

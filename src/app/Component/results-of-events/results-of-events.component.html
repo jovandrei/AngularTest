@@ -7,15 +7,16 @@
   <div *ngFor="let event of ticketMasterEventsInterface._embedded.events">
     <li>
       <a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a>
+      <button (click)="addToBucket(event.id)">[+]</button>
     </li>
   </div>
   <form>
     
-    <button (click)="getLastPage()"> Last</button>
+    
     <button (click)="getFirstPage()"> First</button>
     <Label> {{ticketMasterEventsInterface.page.size}}</Label>
     <button (click)="getNextPage()"> Next</button>
-
+    <button (click)="getLastPage()"> Last</button>
     
   </form>
 </div>
