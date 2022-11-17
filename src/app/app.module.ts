@@ -10,6 +10,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { EventDetailsComponent } from './Component/event-details/event-details.component';
 import { PageNotFoundComponent } from './Component/page-not-found/page-not-found.component';
 import { BucketListComponent } from './Component/bucket-list/bucket-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes:Routes=[
@@ -34,7 +35,8 @@ const appRoutes:Routes=[
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

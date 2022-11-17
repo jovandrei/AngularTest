@@ -1,21 +1,52 @@
-<div class="container mt-3">
-  <form (ngSubmit)="searchEvent()" #myForm="ngForm">
-    <div class="form-floating mb-3 mt-3">
-      <input (input)="searchEvent()"  type="text" name="keyword" [(ngModel)]="ticketMasterSearchingCriteriaInterface.keyword" class="form-control" placeholder="Enter a value">
-      <label for="keyword">Keyword</label>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="container mt-3">
+      <form (ngSubmit)="searchEvent()" #myForm="ngForm">
+
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input (input)="searchEvent()" type="text" name="keyword"
+            [(ngModel)]="ticketMasterSearchingCriteriaInterface.keyword" class="form-control"
+            placeholder="Keyword">
+            <label for="keyword">Keyword</label>
+          </div>
+          <span class="input-group-text"><button (click)="ticketMasterSearchingCriteriaInterface.keyword=''" class="btn btn-outline-secondary border-left-0 border">x</button></span>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input (input)="searchEvent()" type="text" name="postalcode"
+            [(ngModel)]="ticketMasterSearchingCriteriaInterface.postalCode" class="form-control"
+            placeholder="postalcode">
+            <label for="postalcode">Postal Code</label>
+          </div>
+          <span class="input-group-text"><i class="fas fa-times"><button (click)="ticketMasterSearchingCriteriaInterface.postalCode=''" class="btn btn-outline-secondary border-left-0 border">x</button></i></span>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input (input)="searchEvent()" type="date" name="fromDate"
+            [(ngModel)]="ticketMasterSearchingCriteriaInterface.startDateTime" class="form-control"
+            placeholder="fromDate">
+            <label for="fromDate">From Date</label>
+          </div>
+          <span class="input-group-text"><i class="fas fa-times"><button (click)="resetFromDate()" class="btn btn-outline-secondary border-left-0 border">x</button></i></span>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input (input)="searchEvent()" type="date" name="toDate"
+            [(ngModel)]="ticketMasterSearchingCriteriaInterface.endDateTime" class="form-control"
+            placeholder="toDate">
+            <label for="toDate">To Date</label>
+          </div>
+          <span class="input-group-text"><i class="fas fa-times"><button (click)="resetToDate()"  class="btn btn-outline-secondary border-left-0 border">x</button></i></span>
+        </div>
+
+      </form>
     </div>
-    <div class="form-floating mb-3 mt-3">
-      <input type="text" name="postalcode" [(ngModel)]="ticketMasterSearchingCriteriaInterface.postalCode" class="form-control"  placeholder="Enter a value">
-      <label>postalcode</label>
-    </div>
-    <div class="form-floating mb-3 mt-3">
-      <input type="date" name="fromDate" [(ngModel)]="ticketMasterSearchingCriteriaInterface.startDateTime" class="form-control">
-      <label>From Date</label>
-    </div>
-    <div class="form-floating mb-3 mt-3">
-      <input type="date" name="toDate" [(ngModel)]="ticketMasterSearchingCriteriaInterface.startDateTime" class="form-control">
-      <label>To Date</label>
-    </div>
-    <button class="btn btn-primary">Search Event</button>
-  </form>
+  </div>
+  <div class="col-sm-4">
+    <app-results-of-events></app-results-of-events>
+  </div>
 </div>

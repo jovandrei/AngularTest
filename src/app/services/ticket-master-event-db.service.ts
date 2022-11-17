@@ -13,7 +13,7 @@ export class TicketMasterEventDBService {
 
  constructor(private http: HttpClient) { }
 
- getDB() {
+ getDB() { // bucket_list component
     return this.http.get<TicketMasterEventDBInterface>(this.url, {headers:{'x-apikey':this.apiKey}})
  }
 

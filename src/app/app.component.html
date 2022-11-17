@@ -1,16 +1,17 @@
-<div class="bg-primary bg-opacity-30 text-white p-5 text-center">
-  <h1>Ticketmaster</h1>
-  <p>Find your event!</p>
+<div class="bg-transparent p-4 text-center">
+
+    <ngb-carousel *ngIf="imagesArray">
+      <ng-template ngbSlide *ngFor="let image of imagesArray">
+        <div class="picsum-img-wrapper">
+          <img [src]="image.url" alt="Random first slide" class="card-img-top"  height="200"/>
+        </div>
+        <div class="carousel-caption">
+          <h3>{{image.name}}</h3>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <app-ticket-master-form></app-ticket-master-form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <app-results-of-events></app-results-of-events>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>

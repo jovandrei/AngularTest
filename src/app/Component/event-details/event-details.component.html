@@ -1,1 +1,7 @@
-<p>event-details works!</p>
+<button (click)="addEvent()">Add to BucketList</button>
+<label>Event Name:</label>
+<div *ngIf="(tmEvent | json) != '{}' ">
+  <div *ngIf="(tmEvent._embedded) != undefined ">
+    <label>{{tmEvent._embedded.events[0].id}}</label>
+  </div>
+</div>
