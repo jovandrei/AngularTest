@@ -1,23 +1,26 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<div style="width:1000px ;">
 <h1>Results of Events</h1>
-<ul *ngIf="(ticketMasterEventsInterface| json) != '{}' ">
+<ul  *ngIf="(ticketMasterEventsInterface| json) != '{}' ">
   <div *ngIf="(ticketMasterEventsInterface._embedded) != undefined ">
   <div *ngFor="let event of ticketMasterEventsInterface._embedded.events">
-    <li>
-      <a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a>
+    <li >
+      <a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a> &nbsp; &nbsp; 
       <button (click)="addToBucket(event.id)">[+]</button>
     </li>
   </div>
-  <form>
+  
+</div>
+</ul>
+<form>
     
     
     <button (click)="getFirstPage()"> First</button>
-    <Label> {{ticketMasterEventsInterface.page.size}}</Label>
+    <Label> {{ticketMasterEventsInterface.page.number}} of {{ticketMasterEventsInterface.page.totalPages}}</Label>
     <button (click)="getNextPage()"> Next</button>
     <button (click)="getLastPage()"> Last</button>
     
   </form>
 </div>
-</ul>
