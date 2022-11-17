@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Secrets } from "../models/secrets";
+
 import { TicketMasterEventsInterface } from "../models/ticket-master-events-interface";
 import { TicketMasterSearchingCriteriaInterface } from "../models/ticket-master-searching-criteria-interface";
 
@@ -17,7 +18,9 @@ export class TicketMasterEventAPIService {
   readonly imagesArray:Observable<{url:string, name:string}[]| null>  = this._imagesArray.asObservable();
 
   constructor(private http: HttpClient) { }
-
+  completeUrl:string =this.url + ""
+  first:boolean = false;
+  last:boolean = false;
   getEventsAPI(ticketMasterSearchingCriteriaInterface:TicketMasterSearchingCriteriaInterface):Observable<TicketMasterEventsInterface> {
 
     //ticketMasterSearchingCriteriaInterface.startDateTime.toISOString
@@ -31,33 +34,26 @@ export class TicketMasterEventAPIService {
       else
         completeUrl += "&" + key + "=" + ticketMasterSearchingCriteriaInterface[key as keyof TicketMasterSearchingCriteriaInterface]
     }
-    completeUrl += this.apikey
-    console.log(completeUrl)
-    return this.http.get<TicketMasterEventsInterface>(completeUrl)
+    this.completeUrl += this.apikey
+    console.log(this.completeUrl)
+    return this.http.get<TicketMasterEventsInterface>(this.completeUrl)
   }
 
   emitChange(change:{url:string, name:string}[]) {
     this._imagesArray.next(change)
   }
 
-  getAllEvents() {
-    return this.ticketMasterEventsInterface
+  getAllEvents():Observable<any>{
+    return this.http.get<any>(this.completeUrl);
   }
 
-  getEventbyId(eventId:string) {
-    var completeUrl = this.url + "/discovery/v2/events?"
-    completeUrl += "&id=" + eventId
-    completeUrl += this.apikey
-    console.log(completeUrl)
-    return this.http.get<TicketMasterEventsInterface>(completeUrl)
+  navigateToPage(argUrl:string):Observable<TicketMasterEventsInterface> {
+
+    var navigationUrl:string = this.url+argUrl+ "&" + this.apikey
+    console.log(navigationUrl)
+    return this.http.get<TicketMasterEventsInterface>(navigationUrl)
   }
 
-  getPageForEvents(urlString:String) {
-    var completeUrl = this.url + ""
-    completeUrl += urlString
-    completeUrl += this.apikey
-    console.log(completeUrl)
-    return this.http.get<TicketMasterEventsInterface>(completeUrl)
-  }
+
 
 }

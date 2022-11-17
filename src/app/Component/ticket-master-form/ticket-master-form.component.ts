@@ -21,6 +21,7 @@ export class TicketMasterFormComponent implements OnInit {
   }
 
   searchEvent() {
+    console.log("in search event")
     this.ticketMasterEventAPIService.getEventsAPI(this.ticketMasterSearchingCriteriaInterface).subscribe(
       (response: TicketMasterEventsInterface) => {
         this.ticketMasterEventAPIService.ticketMasterEventsInterface = response
