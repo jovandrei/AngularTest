@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Secrets } from "../models/secrets";
 import { TicketMasterEventsInterface } from "../models/ticket-master-events-interface";
 import { TicketMasterSearchingCriteriaInterface } from "../models/ticket-master-searching-criteria-interface";
 
@@ -9,7 +10,7 @@ import { TicketMasterSearchingCriteriaInterface } from "../models/ticket-master-
 })
 export class TicketMasterEventAPIService {
   url:String = 'https://app.ticketmaster.com/discovery/v2/events?'
-  apikey='&apikey=YdV6ERiCicYRnTH4Ap3gjev9RzNik7Hc'
+  apikey="&apikey=" + Secrets.ticketMasterAPIKey
 
   ticketMasterEventsInterface:TicketMasterEventsInterface = {} as TicketMasterEventsInterface
 
