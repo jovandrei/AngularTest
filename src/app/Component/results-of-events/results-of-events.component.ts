@@ -20,43 +20,40 @@ export class ResultsOfEventsComponent{
 
   ngOnInit(): void {
     console.log("here")
+    //this.ticketMasterEventsInterface = this.ticketMasterEventAPIService.getAllEvents()
     this.getEvents()
   }
-  getEvents():void {
-    this.ticketMasterEventAPIService.getAllEvents().subscribe(
-      (response:any)=>{
-      console.log(response);
-      this.ticketMasterEventsInterface = response;
-    },
-    (err)=>{
-      console.log(err);
-    }
-    );
-    
+  getEvents() {
+
+    return this.ticketMasterEventAPIService.getAllEvents()
+
   }
   getLastPage():void{
     this.ticketMasterEventAPIService.navigateToPage(this.ticketMasterEventsInterface._links.last.href).subscribe(
       (response:TicketMasterEventsInterface) => {
         this.ticketMasterEventsInterface = response
+        this.ticketMasterEventAPIService.ticketMasterEventsInterface = response
       }
     )
-    
+
   }
   getFirstPage(){
     return  this.ticketMasterEventAPIService.navigateToPage(this.ticketMasterEventsInterface._links.first.href).subscribe(
       (response:TicketMasterEventsInterface) => {
         this.ticketMasterEventsInterface = response
+        this.ticketMasterEventAPIService.ticketMasterEventsInterface = response
       }
     )
-    
+
   }
   getNextPage(){
     return  this.ticketMasterEventAPIService.navigateToPage(this.ticketMasterEventsInterface._links.next.href).subscribe(
       (response:TicketMasterEventsInterface) => {
         this.ticketMasterEventsInterface = response
+        this.ticketMasterEventAPIService.ticketMasterEventsInterface = response
       }
     )
-    
+
   }
   addToBucket(id:string){
     this.ticketDB.eventId = id;

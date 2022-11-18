@@ -17,22 +17,24 @@ export class TicketMasterEventAPIService {
   private _imagesArray = new BehaviorSubject<{url:string, name:string}[] | null>([])
   readonly imagesArray:Observable<{url:string, name:string}[]| null>  = this._imagesArray.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+   }
   completeUrl:string =this.url + ""
   first:boolean = false;
   last:boolean = false;
   getEventsAPI(ticketMasterSearchingCriteriaInterface:TicketMasterSearchingCriteriaInterface):Observable<TicketMasterEventsInterface> {
 
     //ticketMasterSearchingCriteriaInterface.startDateTime.toISOString
-    var completeUrl = this.url + "/discovery/v2/events?"
+    this.completeUrl = this.url + "/discovery/v2/events?"
 
     for (var key in ticketMasterSearchingCriteriaInterface) {
       if (key == "startDateTime" || key == "endDateTime") {
         const event = new Date(ticketMasterSearchingCriteriaInterface[key]!);
-        completeUrl += "&" + key + "=" + event.toISOString().split('.')[0]+"Z";
+        this.completeUrl += "&" + key + "=" + event.toISOString().split('.')[0]+"Z";
       }
       else
-        completeUrl += "&" + key + "=" + ticketMasterSearchingCriteriaInterface[key as keyof TicketMasterSearchingCriteriaInterface]
+      this.completeUrl += "&" + key + "=" + ticketMasterSearchingCriteriaInterface[key as keyof TicketMasterSearchingCriteriaInterface]
     }
     this.completeUrl += this.apikey
     console.log(this.completeUrl)
@@ -43,12 +45,20 @@ export class TicketMasterEventAPIService {
     this._imagesArray.next(change)
   }
 
-  getAllEvents():Observable<any>{
-    return this.http.get<any>(this.completeUrl);
+  getAllEvents(){
+    return this.ticketMasterEventsInterface
+  }
+
+  getEventbyId(eventId:string) {
+    this.completeUrl = this.url + "/discovery/v2/events?"
+    this.completeUrl += "&id=" + eventId
+    this.completeUrl += this.apikey
+    console.log(this.completeUrl)
+    return this.http.get<TicketMasterEventsInterface>(this.completeUrl)
   }
 
   navigateToPage(argUrl:string):Observable<TicketMasterEventsInterface> {
-
+    console.log(1)
     var navigationUrl:string = this.url+argUrl+ "&" + this.apikey
     console.log(navigationUrl)
     return this.http.get<TicketMasterEventsInterface>(navigationUrl)

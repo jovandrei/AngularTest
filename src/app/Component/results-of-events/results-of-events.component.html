@@ -3,9 +3,9 @@
 </head>
 <div style="width:1000px ;">
 <h1>Results of Events</h1>
-<ul  *ngIf="(ticketMasterEventsInterface| json) != '{}' ">
-  <div *ngIf="(ticketMasterEventsInterface._embedded) != undefined ">
-  <div *ngFor="let event of ticketMasterEventsInterface._embedded.events">
+<ul  *ngIf="(getEvents()| json) != '{}' ">
+  <div *ngIf="(getEvents()._embedded) != undefined ">
+  <div *ngFor="let event of getEvents()._embedded.events">
     <li >
       <a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a> &nbsp; &nbsp;
       <button (click)="addToBucket(event.id)">[+]</button>
@@ -16,11 +16,11 @@
 </ul>
 <form>
 
-
+<!--
     <button (click)="getFirstPage()"> First</button>
-    <Label> {{ticketMasterEventsInterface.page.number}} of {{ticketMasterEventsInterface.page.totalPages}}</Label>
+    <Label> {{getEvents().page.number}} of {{getEvents().page.totalPages}}</Label>
     <button (click)="getNextPage()"> Next</button>
     <button (click)="getLastPage()"> Last</button>
-
+-->
   </form>
 </div>
