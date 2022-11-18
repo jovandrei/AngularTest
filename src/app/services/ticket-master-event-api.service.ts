@@ -17,6 +17,7 @@ export class TicketMasterEventAPIService {
   private _imagesArray = new BehaviorSubject<{url:string, name:string}[] | null>([])
   readonly imagesArray:Observable<{url:string, name:string}[]| null>  = this._imagesArray.asObservable();
 
+
   constructor(private http: HttpClient) {
 
    }
@@ -25,7 +26,6 @@ export class TicketMasterEventAPIService {
   last:boolean = false;
   getEventsAPI(ticketMasterSearchingCriteriaInterface:TicketMasterSearchingCriteriaInterface):Observable<TicketMasterEventsInterface> {
 
-    //ticketMasterSearchingCriteriaInterface.startDateTime.toISOString
     this.completeUrl = this.url + "/discovery/v2/events?"
 
     for (var key in ticketMasterSearchingCriteriaInterface) {
@@ -43,10 +43,6 @@ export class TicketMasterEventAPIService {
 
   emitChange(change:{url:string, name:string}[]) {
     this._imagesArray.next(change)
-  }
-
-  getAllEvents(){
-    return this.ticketMasterEventsInterface
   }
 
   getEventbyId(eventId:string) {

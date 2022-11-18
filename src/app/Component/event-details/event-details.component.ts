@@ -34,7 +34,7 @@ export class EventDetailsComponent implements OnInit {
 
   addEvent () {
     this.ticketMasterEventDBInterface.eventId = this.tmEvent._embedded.events[0].id
-    this.ticketMasterEventDBService.postDB(this.ticketMasterEventDBInterface)
+    this.ticketMasterEventDBService.postDB(this.ticketMasterEventDBInterface).subscribe()
     console.log(this.tmEvent._embedded.events[0].images[0])
   }
   addToBucket(id:string){

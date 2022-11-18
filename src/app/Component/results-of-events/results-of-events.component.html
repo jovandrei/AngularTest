@@ -1,26 +1,38 @@
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<div style="width:1000px ;">
-<h1>Results of Events</h1>
-<ul  *ngIf="(getEvents()| json) != '{}' ">
-  <div *ngIf="(getEvents()._embedded) != undefined ">
-  <div *ngFor="let event of getEvents()._embedded.events">
-    <li >
-      <a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a> &nbsp; &nbsp;
-      <button (click)="addToBucket(event.id)">[+]</button>
-    </li>
+<div style="display: block">
+  <h1>Results of Events</h1>
+  <div *ngIf="(getEvents()| json) != '{}' && (ticketMasterEventsInterface._embedded) != undefined">
+
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Lon</th>
+            <th>Add</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of ticketMasterEventsInterface._embedded.events">
+            <td><a routerLink="/ticketMaster/{{event.id}}">{{event.name}}</a> &nbsp; &nbsp;</td>
+            <td>{{event._embedded.venues[0].country.name}}</td>
+            <td>{{event.dates.start.localDate|date}}</td>
+            <td>{{event._embedded.venues[0].location.latitude}}</td>
+            <td><button (click)="addToBucket(event.id)" class="btn btn-success">+</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" (click)="getFirstPage()">First</a></li>
+        <li class="page-item"><a class="page-link" (click)="getNextPage()">Next</a></li>
+      </ul>
+    </nav>
+
+    <label> {{ticketMasterEventsInterface.page.number}} of {{ticketMasterEventsInterface.page.totalPages}}</label>
+
   </div>
-
-</div>
-</ul>
-<form>
-
-
-    <button (click)="getFirstPage()"> First</button>
-    <Label> {{getEvents().page.number}} of {{getEvents().page.totalPages}}</Label>
-    <button (click)="getNextPage()"> Next</button>
-    <button (click)="getLastPage()"> Last</button>
-
-  </form>
 </div>

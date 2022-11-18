@@ -9,7 +9,7 @@ import { Secrets } from '../models/secrets';
 export class TicketMasterEventDBService {
   apiKey = Secrets.dbAPIKey
   url = "https://ticketmasterdb-d9b5.restdb.io/rest/eventsbucketlist"
-
+  bucketSize:number = 0
 
  constructor(private http: HttpClient) { }
 
@@ -18,11 +18,12 @@ export class TicketMasterEventDBService {
  }
 
  postDB(ticketMasterEventDBInterface:TicketMasterEventDBInterface) {
-   console.log("added to db");
+  this.bucketSize++
     return this.http.post<TicketMasterEventDBInterface>(this.url, ticketMasterEventDBInterface, {headers:{'x-apikey':this.apiKey}})
  }
 
  deleteDB(id:string){
+  this.bucketSize--
   return this.http.delete<TicketMasterEventDBInterface>(this.url+"/"+id, {headers:{'x-apikey':this.apiKey}})
  }
 

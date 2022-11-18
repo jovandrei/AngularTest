@@ -10,10 +10,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let bucketListElement of getBucketListArray(); let i = index">
-        <td>{{bucketListElement._id}}</td>
+        <td><a routerLink="/ticketMaster/{{bucketListElement.eventId}}">{{bucketListElement.eventId}}</a></td>
         <td>{{ticketMasterEventsInterfaceArray[i]._embedded.events[0].name}}</td>
-        <td>{{ticketMasterEventsInterfaceArray[i]._embedded.events[0].name}}</td>
-        <button (click)="deleteItem(bucketListElement._id)"></button>
+        <td>{{ticketMasterEventsInterfaceArray[i]._embedded.events[0].dates.start.localDate|date}}</td>
+        <td><button (click)="deleteItem(bucketListElement._id)" class="btn btn-danger">x</button></td>
       </tr>
     </tbody>
   </table>
