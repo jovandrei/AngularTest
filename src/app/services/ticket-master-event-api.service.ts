@@ -53,14 +53,11 @@ export class TicketMasterEventAPIService {
     this.completeUrl = this.url + "/discovery/v2/events?"
     this.completeUrl += "&id=" + eventId
     this.completeUrl += this.apikey
-    console.log(this.completeUrl)
     return this.http.get<TicketMasterEventsInterface>(this.completeUrl)
   }
 
   navigateToPage(argUrl:string):Observable<TicketMasterEventsInterface> {
-    console.log(1)
     var navigationUrl:string = this.url+argUrl+ "&" + this.apikey
-    console.log(navigationUrl)
     return this.http.get<TicketMasterEventsInterface>(navigationUrl)
   }
 

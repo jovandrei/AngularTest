@@ -14,12 +14,16 @@ export class TicketMasterEventDBService {
  constructor(private http: HttpClient) { }
 
  getDB() { // bucket_list component
-    return this.http.get<TicketMasterEventDBInterface>(this.url, {headers:{'x-apikey':this.apiKey}})
+    return this.http.get<TicketMasterEventDBInterface[]>(this.url, {headers:{'x-apikey':this.apiKey}})
  }
 
  postDB(ticketMasterEventDBInterface:TicketMasterEventDBInterface) {
    console.log("added to db");
     return this.http.post<TicketMasterEventDBInterface>(this.url, ticketMasterEventDBInterface, {headers:{'x-apikey':this.apiKey}})
+ }
+
+ deleteDB(id:string){
+  return this.http.delete<TicketMasterEventDBInterface>(this.url+"/"+id, {headers:{'x-apikey':this.apiKey}})
  }
 
 

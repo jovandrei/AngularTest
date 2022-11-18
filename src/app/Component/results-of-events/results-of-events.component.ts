@@ -25,7 +25,7 @@ export class ResultsOfEventsComponent{
   }
   getEvents() {
 
-    return this.ticketMasterEventAPIService.getAllEvents()
+    return  this.ticketMasterEventAPIService.ticketMasterEventsInterface
 
   }
   getLastPage():void{
@@ -57,7 +57,10 @@ export class ResultsOfEventsComponent{
   }
   addToBucket(id:string){
     this.ticketDB.eventId = id;
-    this.ticketDBService.postDB(this.ticketDB);
+    this.ticketDBService.postDB(this.ticketDB).subscribe(
+      res =>
+      console.log(res)
+    );
   }
 
 }

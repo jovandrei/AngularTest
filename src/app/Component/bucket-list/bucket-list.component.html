@@ -1,1 +1,20 @@
-<p>bucket-list works!</p>
+<div>
+  <h1>Bucket List</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event Id</th>
+        <th>Event Name</th>
+        <th>Event Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bucketListElement of getBucketListArray(); let i = index">
+        <td>{{bucketListElement._id}}</td>
+        <td>{{ticketMasterEventsInterfaceArray[i]._embedded.events[0].name}}</td>
+        <td>{{ticketMasterEventsInterfaceArray[i]._embedded.events[0].name}}</td>
+        <button (click)="deleteItem(bucketListElement._id)"></button>
+      </tr>
+    </tbody>
+  </table>
+</div>
