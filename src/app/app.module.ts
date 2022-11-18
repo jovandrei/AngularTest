@@ -15,7 +15,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes:Routes=[
   { path:'ticketMaster', component:TicketMasterFormComponent},
-  { path:'ticketMaster/:keyword', component:ResultsOfEventsComponent},
   { path:'ticketMaster/:id', component:EventDetailsComponent},
   { path:'bucket', component:BucketListComponent},
   { path:'',redirectTo:'/ticketMaster', pathMatch:'full'},

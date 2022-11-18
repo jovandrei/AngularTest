@@ -1,7 +1,17 @@
 <button (click)="addEvent()">Add to BucketList</button>
-<label>Event Name:</label>
+<br>
 <div *ngIf="(tmEvent | json) != '{}' ">
   <div *ngIf="(tmEvent._embedded) != undefined ">
-    <label>{{tmEvent._embedded.events[0].id}}</label>
+    
+    <label>Event Name: {{tmEvent._embedded.events[0].name}}</label><br>
+    <input type="image" src="{{tmEvent._embedded.events[0].images[0].url}}" height="100px" width="100px"/>
+    <br>
+    <label>Visit:</label><a href="{{tmEvent._embedded.events[0].url}}">Our website</a> for more information<br>
+    <label>Start Date: {{tmEvent._embedded.events[0].dates.start.localDate|date}}</label><br>
+    <label>Promoter: {{tmEvent._embedded.events[0].promoter?.name}}</label><br>
+    <label>Sales starting from: {{tmEvent._embedded.events[0].sales.public.startDateTime|date}} </label>
+    <label>to {{tmEvent._embedded.events[0].sales.public.endDateTime|date}}</label><br>
+    
+    <br>
   </div>
 </div>
